@@ -90,7 +90,7 @@ class VideoPlayer extends Component {
 
     render() {
         return (
-            <video id={this.playerId} className={`video-js ${this.props.bigPlayButtonCentered? 'vjs-big-play-centered' : ''} ${this.props.className}`}></video>
+            <video id={this.playerId} muted={this.props.muted} className={`video-js ${this.props.bigPlayButtonCentered? 'vjs-big-play-centered' : ''} ${this.props.className}`}></video>
         )
     }
 }
@@ -100,6 +100,7 @@ VideoPlayer.propTypes = {
     poster: PropTypes.string,
     controls: PropTypes.bool,
     autoplay: PropTypes.bool,
+    muted: PropTypes.bool,
     preload: PropTypes.oneOf(['auto', 'none', 'metadata']),
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -123,6 +124,7 @@ VideoPlayer.defaultProps = {
     poster: "",
     controls: true,
     autoplay: false,
+    muted: false,
     preload: 'auto',
     playbackRates: [0.5, 1, 1.5, 2],
     hidePlaybackRates: false,
